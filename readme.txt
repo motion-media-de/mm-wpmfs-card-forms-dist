@@ -4,7 +4,7 @@ Tags: forms, card, mobile-first, gutenberg, responsive
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -98,6 +98,10 @@ Ja, Sie können Fragen basierend auf vorherigen Antworten ein- oder ausblenden.
 
 == Changelog ==
 
+= 1.0.1 =
+* Beim Löschen des Plugins werden jetzt die eigenen Tabellen und Einstellungen entfernt. Bisher blieben Formulare, Einsendungen und Optionen dauerhaft in der Datenbank zurück.
+* Im Netzwerkbetrieb wird pro Site aufgeräumt, nicht nur auf der aktuellen.
+
 = 1.0.0 - 2025-11-21 =
 * Umbenannt auf das Präfix der WPMFS-Familie: Plugin-Slug, Text Domain, Block
   (`mm-wpmfs/card-form`), REST-Namespace (`mm-wpmfs-card-forms/v1`), Optionen
@@ -115,6 +119,9 @@ Ja, Sie können Fragen basierend auf vorherigen Antworten ein- oder ausblenden.
 * Gutenberg Block
 
 == Upgrade Notice ==
+
+= 1.0.1 =
+Beim **Löschen** des Plugins werden Formulare und Einsendungen jetzt mit entfernt. Wer die Daten behalten will, deaktiviert das Plugin, statt es zu löschen.
 
 = 1.0.0 =
 Initial release of Card Forms.
