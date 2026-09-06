@@ -4,7 +4,7 @@ Tags: forms, card, mobile-first, gutenberg, responsive
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -98,6 +98,10 @@ Ja, Sie können Fragen basierend auf vorherigen Antworten ein- oder ausblenden.
 
 == Changelog ==
 
+= 1.0.2 =
+* Plugin-Symbol und -Banner werden jetzt an WordPress gemeldet und erscheinen in der Plugin-Liste und im „Details ansehen"-Dialog. Vorläufige Grafiken, bis endgültiges Material vorliegt.
+* Der geteilte Update-Code trägt eine neue Versionsnummer. Ohne sie hätte die älteste installierte Kopie das Verhalten aller Plugins der Familie bestimmt.
+
 = 1.0.1 =
 * Beim Löschen des Plugins werden jetzt die eigenen Tabellen und Einstellungen entfernt. Bisher blieben Formulare, Einsendungen und Optionen dauerhaft in der Datenbank zurück.
 * Im Netzwerkbetrieb wird pro Site aufgeräumt, nicht nur auf der aktuellen.
@@ -119,6 +123,9 @@ Ja, Sie können Fragen basierend auf vorherigen Antworten ein- oder ausblenden.
 * Gutenberg Block
 
 == Upgrade Notice ==
+
+= 1.0.2 =
+Bringt Symbole und Banner mit. Damit sie überall greifen, sollten alle Plugins der Familie aktualisiert werden.
 
 = 1.0.1 =
 Beim **Löschen** des Plugins werden Formulare und Einsendungen jetzt mit entfernt. Wer die Daten behalten will, deaktiviert das Plugin, statt es zu löschen.
