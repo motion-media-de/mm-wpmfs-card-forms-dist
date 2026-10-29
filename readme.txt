@@ -4,7 +4,7 @@ Tags: forms, card, mobile-first, gutenberg, responsive
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -99,6 +99,29 @@ Ja, Sie können Fragen basierend auf vorherigen Antworten ein- oder ausblenden.
 6. Submissions-Ansicht
 
 == Changelog ==
+
+= 1.2.0 =
+* Formulare werden jetzt zentral gepflegt: Unter „Card Forms“ legt man ein
+  Formular einmal an und bindet es mit dem Card-Form-Block auf beliebig vielen
+  Seiten ein. Eine Änderung am Formular gilt sofort überall. Fragen, Texte und
+  Webhook gehören zum Formular, Farben und Layout bleiben am Block der
+  jeweiligen Seite.
+* Formulare haben Revisionen: Eine versehentlich gelöschte Frage lässt sich
+  über „Revisionen“ wiederherstellen.
+* Bestehende Blöcke funktionieren unverändert weiter. In ihrer Seitenleiste
+  macht „Als Formular speichern“ aus einem Block ein zentrales Formular und
+  übernimmt seine Einsendungen ab dieser Version. Einsendungen von davor
+  bleiben ohne Formular-Zuordnung.
+* Ein neu eingefügter Block zeigt die Formularauswahl. Fragen direkt im Block
+  anzulegen geht nur noch in bestehenden Blöcken.
+* Einsendungen lassen sich nach Formular filtern und pro Formular als CSV
+  exportieren. Der Export lieferte vorher keine Datei.
+* Antworten auf zentrale Formulare werden auf dem Server gegen deren Fragen
+  geprüft.
+* Für Mapping-Werkzeuge im Admin liefert `/wp-json/mm-wpmfs-card-forms/v1/forms/<id>`
+  die Feldliste eines Formulars (nur für Administratoren).
+* Die Datenbank wird beim ersten Seitenaufruf nach dem Update automatisch
+  angepasst; eine nie genutzte, leere Tabelle wird dabei entfernt.
 
 = 1.1.0 =
 * Neuer Fragetyp „Such-Auswahl": über einer langen Optionsliste steht ein
