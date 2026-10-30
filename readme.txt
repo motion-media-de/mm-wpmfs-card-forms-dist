@@ -4,7 +4,7 @@ Tags: forms, card, mobile-first, gutenberg, responsive
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -99,6 +99,16 @@ Ja, Sie können Fragen basierend auf vorherigen Antworten ein- oder ausblenden.
 6. Submissions-Ansicht
 
 == Changelog ==
+
+= 1.3.1 =
+* Webhook-Schalter ehrlich gemacht: Card Forms sendet selbst keine Webhooks,
+  das übernimmt ein Addon. Solange keins aktiv ist, das Webhooks wirklich
+  zustellt, zeigt der Formular-Editor einen Hinweis statt des Schalters.
+  Bisher ließ sich der Webhook einschalten, und es passierte stillschweigend
+  nichts. Ein bereits eingeschalteter Webhook bleibt gespeichert und lässt
+  sich dort ausschalten.
+* Für Addons: Neuer Filter `mm_wpmfs_card_forms_webhook_available`. Ein Addon,
+  das Webhooks zustellt, gibt hier `true` zurück.
 
 = 1.3.0 =
 * Verzweigungen: Eine Frage kann von einer früheren Antwort abhängen. Im
