@@ -4,7 +4,7 @@ Tags: forms, card, mobile-first, gutenberg, responsive
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.2.0
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -99,6 +99,36 @@ Ja, Sie können Fragen basierend auf vorherigen Antworten ein- oder ausblenden.
 6. Submissions-Ansicht
 
 == Changelog ==
+
+= 1.3.0 =
+* Verzweigungen: Eine Frage kann von einer früheren Antwort abhängen. Im
+  Formular erscheinen nur die Fragen des gewählten Wegs, „Frage X von Y“
+  zählt nur diese, und wer zurückgeht und die Antwort ändert, landet sauber
+  auf dem neuen Weg. Eingestellt wird das im Editor unter „Conditional Logic“.
+  Für Mehrfachauswahl gibt es „enthält“ / „enthält nicht“.
+* Neuer Fragetyp „Kontaktdaten“: mehrere Felder auf einer Karte (Text,
+  E-Mail, Telefon, Datum, Auswahl), jedes einzeln geprüft und gespeichert.
+  Standardfelder mit Vorschlägen für das automatische Ausfüllen; die
+  Postleitzahl bekommt auf dem Handy das Ziffernfeld.
+* Fehlermeldungen gehören zur jeweiligen Karte und stehen unter den
+  Buttons; der Weiter-Button springt nicht mehr.
+* Antwort „0“ wird bei Pflichtfragen angenommen; Bewertungsskalen werden
+  auf ihren Bereich geprüft.
+* Formulare auf Seiten aus dem Seiten-Cache funktionieren auch nach mehr
+  als einem Tag (vorher schlug das Absenden mit einem Sicherheitsfehler fehl).
+* Schutz vor Spam und Missbrauch: Begrenzung je Absender, unsichtbares
+  Fangfeld, Mindestzeit zum Ausfüllen, Größengrenzen für Antworten.
+* Sicherheit: Webhook-Adressen gelangen nicht mehr ins Seiten-HTML;
+  Fragetexte werden auf erlaubtes HTML geprüft; der CSV-Export entschärft
+  Zellen, die eine Tabellenkalkulation als Formel ausführen würde.
+* IP-Adresse: gespeichert wird nur die echte Verbindungsadresse, wahlweise
+  gar nicht, gekürzt oder vollständig. Neue Installationen speichern gekürzt.
+* Datenschutz: Anschluss an „Personenbezogene Daten exportieren/löschen“
+  von WordPress (Suche über die E-Mail-Adresse) und eine einstellbare
+  Aufbewahrungsfrist mit automatischer Löschung.
+* Einstellungen: Speichern eines Reiters setzt die anderen Reiter nicht
+  mehr zurück.
+* Der CSV-Export enthält alle Einsendungen (vorher höchstens 9999).
 
 = 1.2.0 =
 * Formulare werden jetzt zentral gepflegt: Unter „Card Forms“ legt man ein
