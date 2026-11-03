@@ -2,9 +2,9 @@
 Contributors: wpmfs
 Tags: forms, card, mobile-first, gutenberg, responsive
 Requires at least: 6.5
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.3.1
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -99,6 +99,63 @@ Ja, Sie können Fragen basierend auf vorherigen Antworten ein- oder ausblenden.
 6. Submissions-Ansicht
 
 == Changelog ==
+
+= 2.0.0 =
+Card Forms ist jetzt ein Kern mit Modulen: Benachrichtigungen, Webhook,
+Uploads, Termine und Tracking sind eingebaut und lassen sich unter
+Einstellungen → Module ein- und ausschalten. Die Add-ons „Webhook & AI“ und
+„Pro“ werden nicht mehr gebraucht.
+
+* E-Mail-Benachrichtigungen je Formular: an das Team (mehrere Empfänger,
+  Empfänger nach Antwort, Platzhalter für Antworten), optional eine
+  Bestätigung an den Absender. Versand über den Mailer der Website
+  (SMTP-Plugin, WPO365 …); „Antworten“ geht an den Absender. Testmail und
+  Versandstatus je Einsendung.
+* Webhook im Kern: signierter Versand mit Wiederholungen wie bisher im Addon.
+  Secret und Zustellprotokoll werden übernommen – auch dann, wenn jemand ein
+  altes Webhook & AI ohne vorheriges Update löscht.
+* Shortcode [mm_card_form id="…"] für Einbettungen außerhalb des Editors,
+  z. B. im Anfrage-Overlay des Immo-Portals.
+* Kontextfelder: unsichtbare Werte aus der Einbettung (etwa die Objekt-ID),
+  per Shortcode-Attribut, Block-Einstellung oder URL-Parameter.
+* Neues Frontend: kleiner und schneller, vollständig per Tastatur bedienbar,
+  Fortschritt für Screenreader, Fokus wandert mit. Der Modal-Modus
+  funktioniert (bisher öffnete er sich nicht). Bei einem Netzwerkfehler
+  bleiben die Antworten erhalten; ein Doppelklick erzeugt nur eine
+  Einsendung.
+* Datei-Upload (Modul „Uploads“): Bilder, PDF und Office-Dokumente, bis zu
+  10 Dateien je Feld, Vorgabe 10 MB je Datei. Hochgeladen wird gleich bei der
+  Auswahl, mit Fortschritt; auf dem Telefon geht auch die Kamera. Die Dateien
+  liegen gesperrt, nur Berechtigte laden sie herunter (Detailansicht der
+  Einsendung). Geprüft werden Endung und Inhalt; der Webhook bekommt
+  signierte, befristete Links. Nicht abgeschickte Uploads werden nach 24
+  Stunden gelöscht, die übrigen mit der Einsendung.
+* Terminbuchung (Modul „Termin“) mit Fluent Booking ab 2.4: Die Frage zeigt die
+  freien Zeiten eines Ereignisses, erst Tage, dann Uhrzeiten, und bucht beim
+  Absenden. Name, E-Mail und Telefon kommen aus der Kontaktkarte, die übrigen
+  Antworten als Notiz. Ist der Termin inzwischen vergeben, springt das
+  Formular zur Zeitauswahl zurück, alle anderen Eingaben bleiben.
+* Ereignisse je Schritt, optional an Matomo oder den Google Tag Manager –
+  ohne Antwortwerte.
+* Einsendungen: Detailansicht, Status von Mail und Webhook, Filter für ältere
+  Blöcke ohne zentrales Formular samt CSV-Export. Eigene Berechtigung zum
+  Ansehen der Einsendungen, auch für Redakteure wählbar (Reiter DSGVO).
+* Formularliste: wo ein Formular eingesetzt ist, letzte Einsendung, Shortcode
+  zum Kopieren. Vorlagen für Kontakt, Mieterservice, Schadensmeldung,
+  Bewerbung und Objektanfrage.
+* Ältere Blöcke, die ihre Fragen selbst speichern, lassen sich auf ein
+  zentrales Formular umstellen (Card Forms → Ältere Blöcke umstellen).
+* Neue Installationen löschen Einsendungen nach 90 Tagen; bestehende Seiten
+  behalten ihre Einstellung und bekommen einen Hinweis.
+* Standard-Danketext, Button-Text und Farben aus den Einstellungen wirken
+  jetzt wirklich; {privacy_link} im Einwilligungstext.
+* Behoben: Nach einer Texteingabe ging der erste Klick auf „Weiter“ verloren.
+  Mehrzeilige Antworten verlieren ihre Zeilenumbrüche nicht mehr. Die
+  Löschmeldung bei Einsendungen erscheint wieder.
+* Für Entwickler: Feldtypen und Module lassen sich erweitern
+  (docs/MODULE-UND-FELDTYPEN.md), Haken nach dem Speichern für
+  Integrationen wie WP Immo Connect (docs/INTEGRATION.md).
+* Entfallen: die nie gebaute KI-Ergebnisseite (Route /result, loadingTexts).
 
 = 1.3.1 =
 * Webhook-Schalter ehrlich gemacht: Card Forms sendet selbst keine Webhooks,
@@ -295,6 +352,9 @@ Ja, Sie können Fragen basierend auf vorherigen Antworten ein- oder ausblenden.
 * Gutenberg Block
 
 == Upgrade Notice ==
+
+= 2.0.0 =
+Großes Update. Webhook ist jetzt eingebaut: Nach dem Update auch „Card Forms Webhook & AI“ auf 1.2.0 aktualisieren, danach kann es gelöscht werden; Secret und Protokoll bleiben. „Card Forms Pro“ kann gelöscht werden.
 
 = 1.0.2 =
 Bringt Symbole und Banner mit. Damit sie überall greifen, sollten alle Plugins der Familie aktualisiert werden.
