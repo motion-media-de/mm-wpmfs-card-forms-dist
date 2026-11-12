@@ -4,7 +4,7 @@ Tags: forms, card, mobile-first, gutenberg, responsive
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.0.0
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -99,6 +99,35 @@ Ja, Sie können Fragen basierend auf vorherigen Antworten ein- oder ausblenden.
 6. Submissions-Ansicht
 
 == Changelog ==
+
+= 2.1.0 =
+Härtung nach Review und erstem Einsatz bei der GEWO, dazu zwei kleine Neuerungen.
+
+* Wichtig für Seiten, die von 1.x kommen: Formulare aus der Zeit vor 2.0
+  schicken seit dem Update für jede Einsendung eine Mail an die
+  Standard-Empfänger. Ein Hinweis im Backend nennt diese Formulare – mit
+  eigenem Hinweis, wenn sie auch einen Webhook haben (doppelte Mails über n8n)
+  – und schaltet die Team-Mail dort auf Wunsch mit einem Klick aus.
+* Rate-Limits für Absenden, Uploads und freie Termine zählen bei IPv6 je
+  /64-Netz statt je Adresse; wechselnde Adressen umgehen sie nicht mehr.
+* Bestätigungsmails: höchstens drei je Empfängeradresse und Tag. Die
+  Team-Mail geht weiter raus.
+* Uploads: Office-Dateien (docx, xlsx, odt, ods) werden als Archiv geprüft;
+  ein beliebiges ZIP oder ein Dokument mit Makros mit der Endung .docx wird
+  abgewiesen.
+* Uploads: Der Zeitstempel aus der Seite gilt für Uploads höchstens 12
+  Stunden. Ist er älter – lange offene oder lange gecachte Seite –, holt sich
+  das Formular unbemerkt einen neuen.
+* Uploads: Nicht abgeschickte Dateien belegen das Speicherkontingent höchstens
+  24 Stunden, auch wenn WP-Cron hängt; verwaiste Dateien ohne Datensatz
+  verfallen ebenfalls.
+* Behoben: Wurden auf einer frischen Seite die ersten Dateien gleichzeitig
+  hochgeladen, konnte eine davon mit „konnte nicht gespeichert werden“
+  scheitern.
+* Kontextfelder bekommen eine eigene Bezeichnung (z. B. „Objekt (Post-ID)“)
+  für Mails, Einsendungen und Mapping-Oberflächen wie WP Immo Connect.
+* Einsendungen: Status von Integrationen (z. B. `immo_connect`) erscheinen
+  lesbar; Zustände wie „sent“ oder „failed“ sind übersetzt.
 
 = 2.0.0 =
 Card Forms ist jetzt ein Kern mit Modulen: Benachrichtigungen, Webhook,
@@ -352,6 +381,9 @@ Einstellungen → Module ein- und ausschalten. Die Add-ons „Webhook & AI“ un
 * Gutenberg Block
 
 == Upgrade Notice ==
+
+= 2.1.0 =
+Kam die Seite von 1.x: Formulare von vor 2.0 senden Benachrichtigungen an die Admin-Adresse. Der neue Hinweis im Backend zeigt, welche, und schaltet sie auf Wunsch aus. Dazu Härtung von Rate-Limits, Bestätigungsmails und Uploads.
 
 = 2.0.0 =
 Großes Update. Webhook ist jetzt eingebaut: Nach dem Update auch „Card Forms Webhook & AI“ auf 1.2.0 aktualisieren, danach kann es gelöscht werden; Secret und Protokoll bleiben. „Card Forms Pro“ kann gelöscht werden.
