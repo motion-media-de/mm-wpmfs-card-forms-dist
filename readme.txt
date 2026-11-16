@@ -4,7 +4,7 @@ Tags: forms, card, mobile-first, gutenberg, responsive
 Requires at least: 6.5
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.1.0
+Stable tag: 2.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -99,6 +99,27 @@ Ja, Sie können Fragen basierend auf vorherigen Antworten ein- oder ausblenden.
 6. Submissions-Ansicht
 
 == Changelog ==
+
+= 2.2.0 =
+Farben aus Astra, Darkmode nativ.
+
+* Card Forms nimmt jede Farbe aus der passenden Rolle der Astra-Palette:
+  Brand, Hover, Überschriften, Text, primärer Hintergrund. Ohne Astra kommen
+  sie aus der Palette des Themes, sonst aus eigenen Werten.
+* Astras Darkmode wird vollständig übernommen, auch der Farbumschalter von
+  Astra Pro ohne Neuladen: Karte, Text, Rahmen, Fehlermeldungen,
+  Button-Schrift und die nativen Auswahlfelder werden dunkel.
+* Einstellungen → Farben: Je Farbe „Vom Theme“, eine Farbe der Theme-Palette
+  oder eine eigene Farbe. Die Palette wird mit ihren echten Werten angezeigt,
+  bei Astra auch die dunkle. Theme-Farben folgen dem Darkmode, eigene nicht;
+  die Oberfläche sagt das.
+* Im Block: Palette des Themes, Seitenvorgaben in der Vorschau, Warnung bei zu
+  wenig Kontrast.
+* Behoben: Eine Theme-Farbe als Block- oder Seitenfarbe ergab einen schwarzen
+  Hover und immer weiße Button-Schrift. Mit einer eigenen Farbe wurde im
+  Frontend auch „Zurück“ eingefärbt. Fehlermeldungen, Spinner und die gewählte
+  Skala hatten feste Farben, die im Dunkeln nicht passten. Eigene Farben mit
+  Deckkraft (#rrggbbaa) gingen verloren.
 
 = 2.1.0 =
 Härtung nach Review und erstem Einsatz bei der GEWO, dazu zwei kleine Neuerungen.
@@ -381,6 +402,9 @@ Einstellungen → Module ein- und ausschalten. Die Add-ons „Webhook & AI“ un
 * Gutenberg Block
 
 == Upgrade Notice ==
+
+= 2.2.0 =
+Farben kommen aus Astra bzw. der Theme-Palette und folgen dem Darkmode. „Zurück“ ist nicht mehr akzentfarben. Wer eigenes CSS auf --mmwpmfs-cf-* an :root gesetzt hat, setzt es künftig am Formular (.mm-wpmfs-card-forms__wrapper).
 
 = 2.1.0 =
 Kam die Seite von 1.x: Formulare von vor 2.0 senden Benachrichtigungen an die Admin-Adresse. Der neue Hinweis im Backend zeigt, welche, und schaltet sie auf Wunsch aus. Dazu Härtung von Rate-Limits, Bestätigungsmails und Uploads.
